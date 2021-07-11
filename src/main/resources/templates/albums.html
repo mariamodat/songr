@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <title> Albums </title>
+  <link rel="stylesheet" th:href="@{/homeCss.css}"/>
 </head>
 <body>
+<h1> Welcome to Albums page </h1>
 <h1>Album Page</h1>
-<div th:each="'album : ${albums}'">
+<p th:each="'album : ${albums}'">
   <p th:text="'${album.title}'"></p>
   <p th:text="'${album.artist}'"></p>
   <p th:text="'${album.songCount}'"></p>
   <p th:text="'${album.length}'"></p>
   <img th:src="'${album.imageUrl}'"  th:alt="'${album.title}'"/>
-</div>
+</p>
 </body>
 </html>
