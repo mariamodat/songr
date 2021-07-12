@@ -5,3 +5,7 @@ background-color: rosybrown;
   padding: 40px;
   font-family: 'Marck Script', cursive;
 }
+
+img {
+  size: 200px;
+}
