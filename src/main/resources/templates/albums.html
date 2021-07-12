@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title> Albums </title>
@@ -8,12 +8,17 @@
 <body>
 <h1> Welcome to Albums page </h1>
 <h1>Album Page</h1>
-<p th:each="'album : ${albums}'">
-  <p th:text="'${album.title}'"></p>
-  <p th:text="'${album.artist}'"></p>
-  <p th:text="'${album.songCount}'"></p>
-  <p th:text="'${album.length}'"></p>
-  <img th:src="'${album.imageUrl}'"  th:alt="'${album.title}'"/>
-</p>
+
+<ul th:each="album:${albums}">
+  <li  th:text="${album.title}"></li>
+  <li th:text="${album.artist}"></li>
+  <li th:text="${album.songCount}"></li>
+  <li th:text="${album.length}"></li>
+  <img th:src="${album.imageUrl}"  th:alt="${album.title}"/>
+</ul>
+
+
+
+
 </body>
 </html>
