@@ -6,7 +6,40 @@ background-color: rosybrown;
   font-family: 'Marck Script', cursive;
 }
 
+form {
+  width: 600px;
+  margin-left: 500px;
+  background-image: url("https://media.wired.com/photos/5932aa17d80dd005b42afeeb/master/pass/Music-For-Ideas-cover.jpg");
+
+}
+fieldset{
+  background-color: rgba(0, 0, 0, 0.767);
+  width: 460px;
+  margin-left: 40px;
+
+}
+legend{
+  color: aliceblue;
+}
 img {
   width: 300px;
   hight: 350px;
+}
+label , fieldset{
+  font-family: 'Marck Script', cursive;
+  font-weight: bolder;
+  color: aliceblue;
+}
+
+.submit{
+  font-family: 'Marck Script', cursive;
+  margin-left: 200px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 14px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

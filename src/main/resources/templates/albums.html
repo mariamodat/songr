@@ -7,14 +7,45 @@
 </head>
 <body>
 <h1> Welcome to Albums page </h1>
-<h1>Album Page</h1>
+
+<form action="#" th:action="@{/albums}"  method="post" >
+  <!--              <p>artist:<input type="text" th:field="*{album.artist}"/></p>-->
+  <fieldset>
+    <legend>Add Album </legend>
+  <label>Title:</label>
+    <br>
+  <input type="text" name="title" placeholder="" required />
+  <br> <br> <br>
+  <label>Artist:</label>
+    <br>
+  <input type="text" name="artist"  placeholder="" required />
+    <br> <br> <br>
+  <label>Song Count:</label>
+    <br>
+  <input type="number" name="songCount"  placeholder="" required />
+    <br> <br> <br>
+  <label>Length:</label>
+    <br>
+  <input type="text" name="length"  placeholder="" required />
+    <br> <br> <br>
+  <label>Image URL:</label>
+  <input type="text" name="imageUrl"  placeholder="" required />
+    <br>
+    <br>
+    <br>
+  <input type="submit" value="submit" class="submit"/>
+    </fieldset>
+</form>
 
 <ul th:each="album:${albums}">
   <li  th:text="${album.title}"></li>
   <li th:text="${album.artist}"></li>
   <li th:text="${album.songCount}"></li>
   <li th:text="${album.length}"></li>
+
   <img th:src="${album.imageUrl}"  th:alt="${album.title}"/>
+
+
 </ul>
 
 

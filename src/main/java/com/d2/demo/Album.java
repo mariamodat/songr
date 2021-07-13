@@ -1,11 +1,13 @@
 package com.d2.demo;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 public class Album {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+
   long id;
   String title;
   String artist;
@@ -13,6 +15,8 @@ public class Album {
   String length;
   String imageUrl;
 
+//  @OneToMany(mappedBy = "album")
+//  ArrayList<Song> song;
 
   public Album(String title, String artist, String  songCount, String length, String imageUrl) {
     this.title = title;
