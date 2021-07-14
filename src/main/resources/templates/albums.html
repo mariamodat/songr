@@ -37,15 +37,25 @@
     </fieldset>
 </form>
 
-<ul th:each="album:${albums}">
-  <li  th:text="${album.title}"></li>
+<ul th:each="album:${albums1}" >
+  <li  th:text="${album.title}" ></li>
   <li th:text="${album.artist}"></li>
   <li th:text="${album.songCount}"></li>
   <li th:text="${album.length}"></li>
 
-  <img th:src="${album.imageUrl}"  th:alt="${album.title}"/>
+  <img th:src="${album.imageUrl}"  th:alt="${album.title}"  th:width="300"/>
+
+</ul>
 
 
+<ul>
+  <li th:each="album : ${albums}">
+    <img th:src="@{${album.imageUrl}}" th:width="300"/>
+    <p>Album Title: <span th:text="${album.title}"></span></p>
+    <p>Artist: <span th:text="${album.artist}"></span></p>
+    <p>Song Count: <span th:text="${album.songCount}"></span></p>
+    <p>Length: <span th:text="${album.length}"></span></p>
+  </li>
 </ul>
 
 

@@ -38,30 +38,46 @@ public class HelloController {
 
 
 //  @ResponseBody
+  // get the three albums only :
+
   @GetMapping("/albums")
   public String album(Model model) {
     Album album1 = new Album("I Told You I Like You", "Johnny Orlando, Mackenzie Ziegler", "59,436,114 ", "4 min 08 sec", "https://images.genius.com/73c951f278662679356b9ea0631e2435.600x600x1.png");
     Album album2 = new Album("Arcade ", "Duncan Laurence ", "48,397,097", "3 min 03 sec", "https://i.ytimg.com/vi/L8IhgA3Du3Q/maxresdefault.jpg");
     Album album3 = new Album("Without Me", "Halsey ", "240,635,891", "3 min 23 sec", "https://swanstage.com/wp-content/uploads/2020/10/without-me-1.jpg");
 
-    albumRepository.save(album1);
-    albumRepository.save(album2);
-    albumRepository.save(album3);
+//    albumRepository.save(album1);
+//    albumRepository.save(album2);
+//    albumRepository.save(album3);
 //    Album albums1 = (Album) albumRepository.findAll();
-    Album[] albums = new Album[]{album1, album2, album3,};
-    model.addAttribute("albums", albumRepository.findAll());
-    System.out.println(  "all repos >>>>>>>><<<<<<<<<  "+albumRepository.findAll());
+
+    Iterable<Album> albums = albumRepository.findAll();
+    Album[] albumss = new Album[]{album1, album2, album3,};
+
+    model.addAttribute("albums", albumss);
+    model.addAttribute("albums1", albums);
+
     System.out.println();
 //    return  albumRepository;
 
     return  "albums";
   }
+// get all data from the data base ( from post method ) :
+//  @GetMapping("/albums")
+//  public String allAlbumModel(Model model) {
+//
+//    Iterable<Album> albumsss = albumRepository.findAll();
+//    model.addAttribute("albums", albumsss);
+//    System.out.println();
+//    return  "allAlbums";
+//  }
+
   @PostMapping("/albums")
-  ResponseEntity<Album> newStudent( String title,  String artist,
+  RedirectView newStudent( String title,  String artist,
                                     String songCount,  String length ,  String imageUrl) {
     Album album = new Album( title, artist, imageUrl, length , songCount);
     albumRepository.save(album);
-    return new ResponseEntity<>(album, HttpStatus.CREATED);
+    return new RedirectView ("/albums");
   }
 
 //  @PostMapping("/songs")
