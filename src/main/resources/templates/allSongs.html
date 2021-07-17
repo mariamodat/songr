@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>songs page</title>
+  <link rel="stylesheet" th:href="@{/homeCss.css}"/>
+</head>
+<body>
+<header>
+  <h1>Songs</h1>
+</header>
+
+
+<form action="#" th:action="@{/songs}"  method="post" width="550px" >
+  <!--              <p>artist:<input type="text" th:field="*{album.artist}"/></p>-->
+  <fieldset>
+    <legend>Add songs </legend>
+    <label>Title:</label>
+    <br>
+    <input type="text" name="title" placeholder="" required />
+    <br> <br> <br>
+    <label>album:</label>
+    <br>
+    <input type="text" name="album"  placeholder="" required />
+    <br> <br> <br>
+    <label>trackNumber:</label>
+    <br>
+    <input type="number" name="trackNumber"  placeholder="" required />
+    <br> <br> <br>
+    <label>length:</label>
+    <br>
+    <input type="text" name="length"  placeholder="" required />
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="submit" class="submit"/>
+  </fieldset>
+</form>
+
+<p >
+
+<ul >
+  <li th:each="song : ${songs}" class="temp">
+    <h2>Song Title: <span th:text="${song.title}"></span></h2>
+    <!--    <p>Artist: <span th:text="${song.album.artist}"></span></p>-->
+    <!--    <p>Album: <span th:text="${song.album.title}"></span></p>-->
+    <p>Track #: <span th:text="${song.trackNumber}"></span></p>
+    <p>Length: <span th:text="${song.length}"></span></p>
+  </li>
+</ul>
+</p>
+
+
+
+
+
+</body>
+</html>

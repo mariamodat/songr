@@ -7,7 +7,11 @@
 </head>
 <body>
 <h1> Welcome to Albums page </h1>
+<h2 align="center" > Add Album </h2>
+<h2>
+  <a th:href="@{/songs}" class="btn btn-primary"> Go to Songs page</a>
 
+</h2>
 <form action="#" th:action="@{/albums}"  method="post" >
   <!--              <p>artist:<input type="text" th:field="*{album.artist}"/></p>-->
   <fieldset>
@@ -54,7 +58,8 @@
     <p>Album Title: <span th:text="${album.title}"></span></p>
     <p>Artist: <span th:text="${album.artist}"></span></p>
     <p>Song Count: <span th:text="${album.songCount}"></span></p>
-    <p>Length: <span th:text="${album.length}"></span></p>
+
+
   </li>
 </ul>
 

@@ -2,21 +2,34 @@ package com.d2.demo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "Albums")
 public class Album {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-
   long id;
+//  @Column(name = "title")
   String title;
+//  @Column(name = "artist")
   String artist;
+//  @Column(name = "songCount")
   String songCount;
+//  @Column(name = "length")
   String length;
+
+//  public List<Song> getSong() {
+//    return (List<Song>) song;
+//  }
+
+  //  @Column(name = "imageUrl")
   String imageUrl;
 
-//  @OneToMany(mappedBy = "album")
-//  ArrayList<Song> song;
+  @OneToMany
+    (mappedBy = "songsAlbum")
+  private Set<Song> song;
 
   public Album(String title, String artist, String  songCount, String length, String imageUrl) {
     this.title = title;
@@ -28,6 +41,10 @@ public class Album {
 
   public Album() {
 
+  }
+
+  public Set<Song> getSong() {
+    return song;
   }
 
   public String getTitle() {
@@ -68,5 +85,17 @@ public class Album {
 
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
+  }
+
+  @Override
+  public String toString() {
+    return "Album{" +
+      "id=" + id +
+      ", title='" + title + '\'' +
+      ", artist='" + artist + '\'' +
+      ", songCount='" + songCount + '\'' +
+      ", length='" + length + '\'' +
+      ", imageUrl='" + imageUrl + '\'' +
+      '}';
   }
 }
